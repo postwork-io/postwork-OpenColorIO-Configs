@@ -21,6 +21,7 @@ from aces_ocio.colorspaces import gopro
 from aces_ocio.colorspaces import panasonic
 from aces_ocio.colorspaces import red
 from aces_ocio.colorspaces import sony
+from aces_ocio.colorspaces import fujifilm
 from aces_ocio.process import Process
 
 from aces_ocio.utilities import (ColorSpace, colorspace_prefixed_name, compact,
@@ -1172,7 +1173,12 @@ def create_config_data(odts_info,
                                                lut_resolution_1D)
     for cs in sony_colorspaces:
         config_data['colorSpaces'].append(cs)
-
+    # *F-Log* to *ACES*
+    fujifilm_colorspaces = fujifilm.create_colorspaces(lut_directory,
+                                                       lut_resolution_1D)
+    for cs in fujifilm_colorspaces:
+        config_data['colorSpaces'].append(cs)
+        
     # -------------------------------------------------------------------------
     # General Colorspaces
     # -------------------------------------------------------------------------
