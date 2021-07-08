@@ -95,7 +95,7 @@ def create_FLog(gamut, transfer_function, lut_directory, lut_resolution_1D,
     if transfer_function == 'F-Log':
         data = array.array('f', '\0' * lut_resolution_1D * 4)
         for c in range(lut_resolution_1D):
-            data[c] = FLog_to_linear(1023 * c / (lut_resolution_1D - 1))
+            data[c] = FLog_to_linear( c / (lut_resolution_1D - 1))
 
         lut = '{0}_to_linear.spi1d'.format(transfer_function)
         genlut.write_SPI_1D(

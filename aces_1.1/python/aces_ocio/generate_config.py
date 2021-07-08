@@ -1114,7 +1114,7 @@ def create_config_data(odts_info,
     # -------------------------------------------------------------------------
     # *ACES Color Spaces*
     # -------------------------------------------------------------------------
-
+    '''
     # *ACES* colorspaces
     (aces_reference, aces_colorspaces, aces_displays, aces_log_display_space,
      aces_roles, aces_default_display) = aces.create_colorspaces(
@@ -1173,6 +1173,7 @@ def create_config_data(odts_info,
                                                lut_resolution_1D)
     for cs in sony_colorspaces:
         config_data['colorSpaces'].append(cs)
+    '''
     # *F-Log* to *ACES*
     fujifilm_colorspaces = fujifilm.create_colorspaces(lut_directory,
                                                        lut_resolution_1D)
